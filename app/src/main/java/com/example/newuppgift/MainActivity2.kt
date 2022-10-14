@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.TextView
 
 class MainActivity2 : AppCompatActivity() {
@@ -18,7 +19,7 @@ class MainActivity2 : AppCompatActivity() {
         //skapar variabler för de olika textfälten
         val username = findViewById<EditText>(R.id.name)
         val age = findViewById<EditText>(R.id.age)
-        val driversLicense = findViewById<EditText>(R.id.dl)
+        val switch = findViewById<Switch>(R.id.switch1)
         val food = findViewById<EditText>(R.id.food)
         val maleOrFemale = findViewById<EditText>(R.id.mof)
         val displayBtn = findViewById<Button>(R.id.button3)
@@ -26,11 +27,15 @@ class MainActivity2 : AppCompatActivity() {
 
         //skapar en button listener för att visa texten från formulären i textfälten
         displayBtn.setOnClickListener{
-            display.append("Name: " + username.text.toString())
+            display.append("Name?: " + username.text.toString())
             display.append("\n")
-            display.append("Age: " + age.text.toString())
+            display.append("Age?: " + age.text.toString())
             display.append("\n")
-            display.append("Drivers License?: " + driversLicense.text.toString())
+            if (switch.isChecked) {
+                display.append("Drivers License?: Yes")
+            } else {
+                display.append("Drivers License?: No")
+            }
             display.append("\n")
             display.append("Favorite food?: " + food.text.toString())
             display.append("\n")
